@@ -27,6 +27,7 @@ namespace DAB3.Services
 
         public Municipality GetCountry(string countryName) => _municipality.Find(municipality => municipality.CountryName == countryName).FirstOrDefault();
 
+        //CRUD operations
         public Municipality Create(Municipality municipality)
         {
             _municipality.InsertOne(municipality);

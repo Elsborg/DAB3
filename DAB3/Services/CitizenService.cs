@@ -31,6 +31,7 @@ namespace DAB3
 
         public Citizen GetRandomCitizen(int counter) => _citizen.Find(Citizen => true).Limit(-1).Skip(counter).FirstOrDefault();
 
+        //CRUD operations
         public Citizen Create(Citizen citizen)
         {
             _citizen.InsertOne(citizen);

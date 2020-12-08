@@ -24,6 +24,7 @@ namespace DAB3.Services
 
         public Location GetRandomLocation(int counter) => _location.Find(Location => true).Limit(-1).Skip(counter).FirstOrDefault();
 
+        //CRUD operations
         public Location Create(Location location)
         {
             _location.InsertOne(location);

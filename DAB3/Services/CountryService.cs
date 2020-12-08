@@ -25,6 +25,7 @@ namespace DAB3.Services
 
         public List<Country> GetCountryId(string countryId) => _country.Find(country => country.CountryId == countryId).ToList();
 
+        // CRUD operations
         public Country Create(Country country)
         {
             _country.InsertOne(country);

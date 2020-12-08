@@ -20,9 +20,9 @@ namespace DAB3.Services
 
         public List<LocationCitizen> Get() => _locationcitizen.Find(LocationCitizen => true).ToList();
 
-        public LocationCitizen GetSSN(string ssn) => _locationcitizen.Find<LocationCitizen>(LocationCitizen => LocationCitizen.SSN == ssn).FirstOrDefault();
+        public LocationCitizen GetSSN(string ssN) => _locationcitizen.Find<LocationCitizen>(LocationCitizen => LocationCitizen.SSN == ssN).FirstOrDefault();
 
-        public List<LocationCitizen> GetSocialNumber(string ssn) => _locationcitizen.Find<LocationCitizen>(LocationCitizen => LocationCitizen.SSN == ssn).ToList();
+        public List<LocationCitizen> GetSocialNumber(string ssN) => _locationcitizen.Find<LocationCitizen>(LocationCitizen => LocationCitizen.SSN == ssN).ToList();
 
         public LocationCitizen GetAddress(string address) => _locationcitizen.Find<LocationCitizen>(LocationCitizen => LocationCitizen.Address == address).FirstOrDefault();
 
@@ -37,6 +37,8 @@ namespace DAB3.Services
         public LocationCitizen GetDate(string date) =>
            _locationcitizen.Find<LocationCitizen>(Locationcitizen => Locationcitizen.date == date).FirstOrDefault();
 
+
+        //CRUD operations
         public LocationCitizen Create(LocationCitizen locationCitizen)
         {
             _locationcitizen.InsertOne(locationCitizen);

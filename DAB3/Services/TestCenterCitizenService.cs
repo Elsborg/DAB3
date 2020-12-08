@@ -33,6 +33,7 @@ namespace DAB3.Services
 
         public TestCenterCitizen GetDate(string date) => _testcentercitizen.Find(testcentercitizen => testcentercitizen.Date == date).FirstOrDefault();
 
+        //CRUD operations
 
         public TestCenterCitizen Create(TestCenterCitizen testCenterCitizen)
         {

@@ -32,6 +32,7 @@ namespace DAB3.Services
         public TestCenter GetRandomTestCenter(int counter) =>
             _testcenter.Find(TestCenter => true).Limit(-1).Skip(counter).FirstOrDefault();
 
+        //CRUD operations
         public TestCenter Create(TestCenter testCenter)
         {
             _testcenter.InsertOne(testCenter);

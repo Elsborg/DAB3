@@ -4,11 +4,12 @@ using System.Text;
 using System.Globalization;
 using System.Linq;
 using DAB3.Services;
+using Microsoft.VisualBasic;
 using System.IO;
 
 namespace DAB3
 {
-    class CreateFunctions
+    class MongoFunctions
     {
         public void citizenCreation(CitizenService cs)
         {
@@ -98,7 +99,7 @@ namespace DAB3
             Console.WriteLine("Enter address for the location: ");
             string address = Console.ReadLine();
 
-            Console.WriteLine("Enter Municipality ID which the municipality is located: ");
+            Console.WriteLine("Enter Municipality ID where the municipality is located: ");
             int municipalityid = int.Parse(Console.ReadLine());
 
             var AddLocation = new Location()
@@ -128,7 +129,7 @@ namespace DAB3
             var cit = cs.Get(ssn);
             var loc = ls.GetAddress(address);
 
-            var LocationCitizenAdd = new LocationCitizen()
+            var addLocationCitizen = new LocationCitizen()
             {
                 Address = address,
                 SSN = ssn,
@@ -137,7 +138,7 @@ namespace DAB3
                 location = loc
             };
 
-            lcs.Create(LocationCitizenAdd);
+            lcs.Create(addLocationCitizen);
 
             Console.WriteLine("Location added!\n");
         }
@@ -175,14 +176,26 @@ namespace DAB3
             Console.Clear();
             Console.WriteLine("Enter test result, P = Positve and N = Negative\n");
             string tempResult = Console.ReadLine();
-            if (tempResult == "P")
+            int checkBool = 0;
+            do
             {
-                tcc.Result = true;
-            }
-            else if (tempResult == "N")
-            {
-                tcc.Result = false;
-            }
+                if (tempResult == "P")
+                {
+                    tcc.Result = true;
+                    checkBool = 1;
+                }
+                else if (tempResult == "N")
+                {
+                    tcc.Result = false;
+                    checkBool = 1;
+                }
+                else
+                {
+                    Console.WriteLine("Enter valid result: ");
+                    tempResult = Console.ReadLine();
+                    checkBool = 0;
+                }
+            } while (checkBool == 0);
 
             tccs.Create(tcc);
             Console.WriteLine("Test case added\n");
